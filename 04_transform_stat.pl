@@ -28,7 +28,7 @@ while (<IN1>){
 	foreach $i (@gene){
 		foreach $j (@genomes){
 		#	print $i."\t".$j."\n";
-			if ($i =~ /$j/){
+			if ($i =~ /$j\_/){
 				if (not exists $genemtx{$j}){
 					$genemtx{$j}=$i;
 				}
