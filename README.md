@@ -14,6 +14,7 @@ Dependencies:
 - [DAGchainer](https://vcru.wisc.edu/simonlab/bioinformatics/programs/dagchainer/dagchainer_documentation.html) or [MCscanX](https://github.com/wyp1125/MCScanX)
 
 *Use BLASP and DAGChainer as an example*
+
 *BLASTP identifies more syntelogs than diamond*
 
 Make BLAST database
