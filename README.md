@@ -10,10 +10,11 @@ perl 00_list2pair.pl sample.list > sample.pair
 ```
 Pairwise genome synteny and syntelogs
 Dependencies:
-- Blastp or Diamond
-- DAGchainer or MCscanX
+- BLASTP or [Diamond](https://github.com/bbuchfink/diamond)
+- [DAGchainer](https://vcru.wisc.edu/simonlab/bioinformatics/programs/dagchainer/dagchainer_documentation.html) or [MCscanX](https://github.com/wyp1125/MCScanX)
 
 *Use BLASP and DAGChainer as an example*
+*BLASTP identifies more syntelogs than diamond*
 
 Make BLAST database
 ```
@@ -104,12 +105,10 @@ perl haplotype_divergence.pl SG-list Sample-ID-pop1 Sample-ID-pop2 output-prefix
 ##see detailed formats of input files in scripts
 perl merge_genes_gt_cutoff.pl Divergence-value-file cutoff-value
 perl merge_genes_lt_cutoff.pl Divergence-value-file cutoff-value
-
 ```
 4. Enrichment tests on the genomic distribution of low-divergence genes
 ```
 perl genomic_distribution_enrichment_test.pl All-gene-divergence-info cutoff-value sliding-window-size Replicates
 ```
-
 
 If any questions, contact at wudongya@zju.edu.cn.
