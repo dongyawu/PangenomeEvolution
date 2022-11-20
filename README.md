@@ -47,10 +47,10 @@ perl 04_transform_stat.pl SG_file_name sample.list
 SG-Pan example (5 samples: A, B, C, D, E):
 ```
 #SG-ID Sample-size Gene-size   Syntelog-in-A   Syntelog-in-B   Syntelog-in-C   Syntelog-in-D   Syntelog-in-E
-SG0001  5   5   A-gene1 B-gene1 C-gene2 D-gene1 E-gene1
-SG0002   5   6   A-gene2 B-gene2,B-gene3 C-gene3 D-gene2 E-gene2
-SG0003   4   4   A-gene3 B-gene4    D-gene4 E-gene3
-SG0004   2   2   A-gene4            D-gene5 
+SG0001  5 5 A-gene1 B-gene1 C-gene2 D-gene1 E-gene1
+SG0002  5 6 A-gene2 B-gene2,B-gene3 C-gene3 D-gene2 E-gene2
+SG0003  4  4  A-gene3 B-gene4   D-gene4 E-gene3
+SG0004  2  2  A-gene4     D-gene5 
 ```
 > Ideally, within one SG, one sample at most provides one syntelog (present or absent)(SG0001, SG0003 and SG0004). Sometimes two or more genes from one sample are observed in one SG, because pairwise alignments for two samples (A as query and B as ref *versus* A as ref and B as query) may identify different syntelog pairs due to tandem duplication (SG0002).
 
