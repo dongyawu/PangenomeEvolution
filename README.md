@@ -3,6 +3,10 @@
 ## Construction of syntelog-based pangenome
 
 Prepare protein sequence files (SAMPLE.prot) and gene annotation (SAMPLE.bed).
+PROT files should be named as SAMPLE.prot.
+BED files should be named as SAMPLE.bed and sorted by genomic positions.
+Data trimming is required to make sure consistency of PROT id and Gene id. e.g. Filtering multiple transcripts.
+
 BED format of gene annotation
 ```
 ChrID   Start   End   GeneID
@@ -10,10 +14,7 @@ Chr1    69675   70131   LOC_Os01g01140
 Chr1    72775   79938   LOC_Os01g01150
 Chr1    82428   84302   LOC_Os01g01160
 ```
-```
-perl 00_gff2sim.pl GFF3
-perl 00_list2pair.pl sample.list > sample.pair
-```
+
 Pairwise genome synteny and syntelogs
 Dependencies:
 - [Diamond](https://github.com/bbuchfink/diamond)
