@@ -22,7 +22,7 @@ Dependencies:
 *BLASTP identifies more syntelogs than diamond*
 
 ```
-perl synpan_build.pl SAMPLE.list PROT_FILES_DIR BED_FILES_DIR
+perl synpan_build.pl 4grass.list
 ```
 ### Output
 
