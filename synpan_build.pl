@@ -9,14 +9,7 @@
 ### Species information is recommended to be added in Gene/Chromosome/Prot IDs.
 ### e.g. Rename LOC_Os01g01120 as Osat_LOC_Os01g01120
 
-my $list = shift || die "usage: perl $0 sample_list prot_dir gff_dir \n";
-my $prot_dir = shift || die;
-#my $prot_dir=~ s/\/$// if ($prot_dir =~ /\/$/);
-my $bed_dir = shift || die;
-#my $bed_dir =~ s/\/$// if ($bed_dir =~ /\/$/);
-
-print $prot_dir."\n";
-print $bed_dir."\n";
+my $list = shift || die "usage: perl $0 sample_list \n";
 
 $DAG_position="/public/home/wudy/software/DAGCHAINER";
 $blast_threads=20;
@@ -28,19 +21,20 @@ while (<IN>){
 	chomp;
 	$id=$_;
 	push(@samples, $id);
-	if (-e $prot_dir."/".$id.".prot"){
+	if (-e $id.".prot"){
 		print $id.".prot is found\n";
-		system(qq(cat $prot_dir/$id.prot | perl -npe "s/>/>$id\_/" > $id.prot));
+		system(qq(mv $id.prot $id.prot_raw));
+		system(qq(cat $id.prot_raw | perl -npe "s/>/>$id\_/" > $id.prot));
 	}
 	else {
  		print $id.".prot NO found!\n";
  		$countProtNF+=1;
 	}
 
- 	if (-e $bed_dir."/".$id.".bed"){
+ 	if (-e $id.".bed"){
 		print $id.".bed is found\n";
-		system(qq(cat $bed_dir\/$id.bed | sort -k1,1 -k2,2n > $id.bed));
-		open IN0, "$id\.bed";
+		system(qq(cat $id.bed | sort -k1,1 -k2,2n > $id.bed2));
+		open IN0, "$id\.bed2";
 		open OUT0,">$id.coo";
 		$order=0;
  		while (<IN0>){
@@ -53,6 +47,7 @@ while (<IN>){
 		}
 		close IN0;
 		close OUT0;
+		system(qq(rm -f $id.bed2));
 	}
 	else{
 		print $id.".bed NO found!\n";
@@ -345,8 +340,8 @@ while (<SG>){
 
 ###***STAT***
 open STAT,">$list.sg.stat";
-print "Brief Statistic\n***********************\nShared_Genomes\tSOG_Number\n";
-print STAT "Brief Statistic\n***********************\nShared_Genomes\tSOG_Number\n";
+print "Brief Statistic\n***********************\nShared_Genomes\tSG_Number\n";
+print STAT "Brief Statistic\n***********************\nShared_Genomes\tSG_Number\n";
 $SG_all=(keys %SG_gocount);
 %size;
 foreach $mm (keys %SG_gocount){
