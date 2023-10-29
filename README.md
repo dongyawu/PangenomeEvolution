@@ -15,13 +15,11 @@ Chr1    72775   79938   LOC_Os01g01150
 Chr1    82428   84302   LOC_Os01g01160
 ```
 
-Pairwise genome synteny and syntelogs
 Dependencies:
 - [Diamond](https://github.com/bbuchfink/diamond)
 - [DAGchainer](https://vcru.wisc.edu/simonlab/bioinformatics/programs/dagchainer/dagchainer_documentation.html)
 
 *BLASTP identifies more syntelogs than diamond*
-
 
 ```
 perl synpan_build.pl SAMPLE.list PROT_FILES_DIR BED_FILES_DIR
