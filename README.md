@@ -4,7 +4,27 @@
 ### Input files
 - Protein sequences in fasta format (SAMPLE.prot in current working directory)
 - Gene coordinates in bed format (SAMPLE.bed in current working directory)
-
+- Sample.list (e.g. 4grass.list in [test](https://github.com/dongyawu/PangenomeEvolution/tree/main/test))
+```
+Plat
+Osat
+Sbic
+Atau
+Hvul
+```
+files
+```
+Atau.bed
+Atau.prot
+Hvul.bed
+Hvul.prot
+Osat.bed
+Osat.prot
+Plat.bed
+Plat.prot
+Sbic.bed
+Sbic.prot
+```
 *When generating the coordinates of genes, note the formats of GFF files from different genome projects and data trimming (e.g. filtering multiple transcripts) is required to make sure consistency of protein sequence (.prot) id and gene id (.bed).*
 
 BED format of gene coordinates
