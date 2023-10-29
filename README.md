@@ -2,47 +2,30 @@
 
 ## Construction of syntelog-based pangenome
 
-Prepare protein sequence files (prot.fasta) and gene annotation (gff3).
-Convert gff3 to DAGchainer required format
+Prepare protein sequence files (SAMPLE.prot) and gene annotation (SAMPLE.bed).
+BED format of gene annotation
+```
+ChrID   Start   End   GeneID
+Chr1    69675   70131   LOC_Os01g01140
+Chr1    72775   79938   LOC_Os01g01150
+Chr1    82428   84302   LOC_Os01g01160
+```
 ```
 perl 00_gff2sim.pl GFF3
 perl 00_list2pair.pl sample.list > sample.pair
 ```
 Pairwise genome synteny and syntelogs
 Dependencies:
-- BLASTP or [Diamond](https://github.com/bbuchfink/diamond)
-- [DAGchainer](https://vcru.wisc.edu/simonlab/bioinformatics/programs/dagchainer/dagchainer_documentation.html) or [MCscanX](https://github.com/wyp1125/MCScanX)
-
-*Use BLASP and DAGChainer as an example*
+- [Diamond](https://github.com/bbuchfink/diamond)
+- [DAGchainer](https://vcru.wisc.edu/simonlab/bioinformatics/programs/dagchainer/dagchainer_documentation.html)
 
 *BLASTP identifies more syntelogs than diamond*
 
-Make BLAST database
-```
-for i in `cat sample.list`;
-do makeblastdb -in ${i}_prot.fasta -dbtype prot -out ${i} ;
-done
-```
-Pairwise BLASTP
-```
-perl 01_blastp.pl sample.pair
-```
-BLASTP to pairwise syntelogs
-```
-perl 02_blastp_2_DAGchain.pl sample.pair
-```
-
-Merge to syntelog groups (SG)
 
 ```
-perl 03_merge.pl sample.list SG_file_name
+perl synpan_build.pl SAMPLE.list PROT_FILES_DIR BED_FILES_DIR
 ```
 
-Format transfer and brief statistics
-
-```
-perl 04_transform_stat.pl SG_file_name sample.list
-```
 
 SG-Pan example (5 samples: A, B, C, D, E):
 ```
