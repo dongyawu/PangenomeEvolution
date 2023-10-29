@@ -2,8 +2,6 @@
 
 ## Build a syntelog-based pangenome
 ### Input files
-- Protein sequences in fasta format (SAMPLE.prot in current working directory)
-- Gene coordinates in bed format (SAMPLE.bed in current working directory)
 - Sample.list (e.g. 4grass.list in [test](https://github.com/dongyawu/PangenomeEvolution/tree/main/test))
 ```
 Plat
@@ -12,7 +10,9 @@ Sbic
 Atau
 Hvul
 ```
-files
+- Prot and Gene coordinates files in current working directory.
+Protein sequences in fasta format (SAMPLE.prot in current working directory)
+Gene coordinates in bed format (SAMPLE.bed in current working directory)
 ```
 Atau.bed
 Atau.prot
@@ -34,15 +34,17 @@ Chr1    72775   79938   LOC_Os01g01150
 Chr1    82428   84302   LOC_Os01g01160
 ```
 
-Dependencies:
+### Dependencies:
 - [Diamond](https://github.com/bbuchfink/diamond)
 - [DAGchainer](https://vcru.wisc.edu/simonlab/bioinformatics/programs/dagchainer/dagchainer_documentation.html)
 
 *BLASTP identifies more syntelogs than diamond*
 
+### Run
 ```
 perl synpan_build.pl 4grass.list
 ```
+
 ### Output files
 - 4grass.list.SG
 ```
