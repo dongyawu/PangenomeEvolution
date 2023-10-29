@@ -28,55 +28,54 @@ while (<IN>){
 	chomp;
 	$id=$_;
 	push(@samples, $id);
-#	if (-e $prot_dir."/".$id.".prot"){
-#		print $id.".prot is found\n";
-#		system(qq(cat $prot_dir/$id.prot | perl -npe "s/>/>$id\_/" > $id.prot));
-#	}
-#	else {
-# 		print $id.".prot NO found!\n";
-# 		$countProtNF+=1;
-#	}
+	if (-e $prot_dir."/".$id.".prot"){
+		print $id.".prot is found\n";
+		system(qq(cat $prot_dir/$id.prot | perl -npe "s/>/>$id\_/" > $id.prot));
+	}
+	else {
+ 		print $id.".prot NO found!\n";
+ 		$countProtNF+=1;
+	}
 
-# 	if (-e $bed_dir."/".$id.".bed"){
-#		print $id.".bed is found\n";
-#		system(qq(cat $bed_dir\/$id.bed | sort -k1,1 -k2,2n > $id.bed));
-#		open IN0, "$id\.bed";
-#		open OUT0,">$id.coo";
-#		$order=0;
-# 		while (<IN0>){
-#			chomp;
+ 	if (-e $bed_dir."/".$id.".bed"){
+		print $id.".bed is found\n";
+		system(qq(cat $bed_dir\/$id.bed | sort -k1,1 -k2,2n > $id.bed));
+		open IN0, "$id\.bed";
+		open OUT0,">$id.coo";
+		$order=0;
+ 		while (<IN0>){
+			chomp;
 			###Order was used, rather than physical position
-#			($chr, $start, $end, $geneid)=split(/\t/,$_);
-#			$order+=1;
+			($chr, $start, $end, $geneid)=split(/\t/,$_);
+			$order+=1;
 			### DAGchainer required format
-#			print OUT0 $id."_".$geneid."\t".$id."_".$geneid."\t".$id."_".$geneid."\t".$id."_".$chr."\t".$order."\t".$order."\n";
-#		}
-#		close IN0;
-#		close OUT0;
-#	}
-#	else{
-#		print $id.".bed NO found!\n";
-#		$countGFFNF+=1;
-#	}
+			print OUT0 $id."_".$geneid."\t".$id."_".$geneid."\t".$id."_".$geneid."\t".$id."_".$chr."\t".$order."\t".$order."\n";
+		}
+		close IN0;
+		close OUT0;
+	}
+	else{
+		print $id.".bed NO found!\n";
+		$countGFFNF+=1;
+	}
 }
 close IN;
 
 if($countProtNF>0){
-#	print "PROT FILES ARE INCOMPLETE!\n";
+	print "PROT FILES ARE INCOMPLETE!\n";
 }
 else {
-#	print "PROT FILES ARE PREPARED~\n";
+	print "PROT FILES ARE PREPARED~\n";
 }
 
 if($countGFFNF>0){
-#	print "GFF (Coordinate) FILES ARE INCOMPLETE!\n";
+	print "GFF (Coordinate) FILES ARE INCOMPLETE!\n";
 }
 else {
-#	print "GFF (Coordinate) FILES ARE PREPARED~\n";
+	print "GFF (Coordinate) FILES ARE PREPARED~\n";
 }
 
 
-<<EOF
 ###pairwise BLAST
 $len=@samples-1;
 foreach $i (0..$len){
@@ -171,8 +170,7 @@ foreach $i (0..$len){
 	}
 }
 
-EOF
-;
+
 my $genome_number = @samples;
 my $ref = $samples[0];
 my $ref_coo = $ref.".coo";
