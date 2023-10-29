@@ -1,6 +1,6 @@
 # SynPan
 
-## Construction of syntelog-based pangenome
+## Build a syntelog-based pangenome
 ### Input files
 - Protein sequences in fasta format (SAMPLE.prot in current working directory)
 - Gene coordinates in bed format (SAMPLE.bed in current working directory)
@@ -71,19 +71,18 @@ Extract subset (part of SGs) of SG-pan
 perl 032_subPan_SG.pl SG-Pan Sub-list(SG)
 ```
 
-## Haplotype analysis based on SGs
+## SG Haplotype Analysis
 
-Sequence library for each SG
+- Sequence library for each SG
 ```
 perl 05_get_SG_seq.pl SG-pan seq-base type(prot, cds or gene)
 ```
-Align syntelog sequences within each SG
+- Align syntelog sequences within each SG
 ```
-mafft *.sequences > *.alignment
-
+mafft *.sequences > *.alignment 
 #alignment trimming using Gblocks or trimAl is optional
 ```
-Assign haplotype for each syntelogs within one SG
+- Assign haplotype for each syntelogs within one SG
 ```
 perl haplotype_assign_pop.pl alignment K population-info
 
@@ -91,33 +90,37 @@ perl haplotype_assign_pop.pl alignment K population-info
 #K, number of haplotype ancestries (K=5)
 #population-info, subspecies or groups (tmp, XI1A, XI1B, aus, XI3...) of each sample
 ```
-Merge haplotype assignments of all SGs together
+- Merge haplotype assignments of all SGs together
 ```
 perl haplotype_merge.pl SG-list Sample-list K output-file
 ```
 
-Others:
+## Others:
 
-1. Calculate haplotype diversity
+- Calculate haplotype diversity
 ```
 ### CDS
 perl haplotype_frequency_Cdiversity.pl SG-list Sample-ID output-prefix
 ### Protein
 perl haplotype_frequency_Pdiversity.pl SG-list Sample-ID output-prefix
 ```
-2. Calculate haplotype divergence between populations
+- Calculate haplotype divergence between populations
 ```
 perl haplotype_divergence.pl SG-list Sample-ID-pop1 Sample-ID-pop2 output-prefix
 ```
-3. Merge adjacent SGs whose divergence values greater or less than cutoff value
+- Merge adjacent SGs whose divergence values greater or less than cutoff value
 ```
 ##see detailed formats of input files in scripts
 perl merge_genes_gt_cutoff.pl Divergence-value-file cutoff-value
 perl merge_genes_lt_cutoff.pl Divergence-value-file cutoff-value
 ```
-4. Enrichment tests on the genomic distribution of low-divergence genes
+- Enrichment tests on the genomic distribution of low-divergence genes
 ```
 perl genomic_distribution_enrichment_test.pl All-gene-divergence-info cutoff-value sliding-window-size Replicates
 ```
 
 If any questions, contact at wudongya@zju.edu.cn.
+A NEW VERSION OF SYNPAN2 IS GOING TO RELEASE SOON.
+
+Cite:
+Wu, D., Xie, L., Sun, Y. et al. [A syntelog-based pan-genome provides insights into rice domestication and de-domestication](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-023-03017-5). Genome Biol 24, 179 (2023). https://doi.org/10.1186/s13059-023-03017-5
