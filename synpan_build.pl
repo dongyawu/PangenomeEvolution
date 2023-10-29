@@ -6,13 +6,17 @@
 ### BED annotations should be sorted by genomic positions.
 ### Data trimming is required to make sure consistency of PROT id and Gene/mRNA id.
 ### e.g. Filtering multiple transcripts.
-### Species information is recommended to be added in Gene/Chromosome/Prot IDs.
+### Species information will be added in Gene/Chromosome/Prot IDs.
 ### e.g. Rename LOC_Os01g01120 as Osat_LOC_Os01g01120
 
 
 my $list = shift || die "usage: perl $0 sample_list \n";
 
-$DAG_position="/public/home/wudy/software/DAGCHAINER";
+#####
+###SPECIFY YOUR PATH TO DAGCHAINER
+#####
+
+$DAG_position="/public/home/software/DAGCHAINER";
 $blast_threads=20;
 
 my @samples;
