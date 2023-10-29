@@ -1,4 +1,4 @@
-5 species 
+5 species from grass family 
 - Plat: *Pharus latifolius*,basal species in Poaceae family. 
 - Osat: *Oryza sativa*, Asia cultivated rice NIP. 
 - Sbic: *Sorghum bicolor*. 
