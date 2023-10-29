@@ -40,6 +40,8 @@ Chr1    82428   84302   LOC_Os01g01160
 - [Diamond](https://github.com/bbuchfink/diamond)
 - [DAGchainer](https://vcru.wisc.edu/simonlab/bioinformatics/programs/dagchainer/dagchainer_documentation.html)
 
+*Specify your PATH to DAGCHAINER in synpan_build.pl firstly*
+
 *BLASTP identifies more syntelogs than diamond*
 
 ### Run
