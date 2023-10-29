@@ -9,7 +9,6 @@ Note different formats of GFF files from different genome projects and data trim
 
 BED format of gene annotation
 ```
-ChrID   Start   End   GeneID
 Chr1    69675   70131   LOC_Os01g01140
 Chr1    72775   79938   LOC_Os01g01150
 Chr1    82428   84302   LOC_Os01g01160
@@ -42,8 +41,13 @@ SG0000037	4	4	-	Plat_Pl01g00370		Sbic_Sobic.003G445400	Atau_AET3Gv21249200	Hvul_
 SG0000038	1	1	-	Plat_Pl01g00380				
 SG0000039	5	5	-	Plat_Pl01g00390	Osat_LOC_Os01g74450	Sbic_Sobic.003G445300	Atau_AET3Gv21248800	Hvul_HORVU.MOREX.r3.3HG0330200
 SG0000040	4	4	-	Plat_Pl01g00400	Osat_LOC_Os01g74440		Atau_AET3Gv21248600	Hvul_HORVU.MOREX.r3.3HG0330190
+SG0000041	2	2	-	Plat_Pl01g00410			Atau_AET3Gv21248100	
+SG0000042	3	3	-	Plat_Pl01g00420			Atau_AET3Gv21248000	Hvul_HORVU.MOREX.r3.3HG0330130
+SG0000043	4	6	*	Plat_Pl01g00430	Osat_LOC_Os01g74350		Atau_AET3Gv21247000,Atau_AET3Gv21246800	Hvul_HORVU.MOREX.r3.3HG0330030,Hvul_HORVU.MOREX.r3.3HG0330070
+SG0000044	1	1	-	Plat_Pl01g00440				
+SG0000045	2	2	-	Plat_Pl01g00450				Hvul_HORVU.MOREX.r3.3HG0329940
 ```
-> Ideally, within one SG, one sample at most provides one syntelog (present or absent)(SG0001, SG0003 and SG0004). Sometimes two or more genes from one sample are observed in one SG, because pairwise alignments for two samples (A as query and B as ref *versus* A as ref and B as query) may identify different syntelog pairs due to tandem duplication (SG0002, marked by *).
+> Ideally, within one SG, one sample at most provides one syntelog (present or absent)(e.g. SG0000036). Sometimes two or more genes from one sample are observed in one SG, because pairwise alignments for two samples (A as query and B as ref *versus* A as ref and B as query) may identify different syntelog pairs due to tandem duplication (e.g. SG0000043, marked by *).
 
 - 4grass.list.sg.stat
 ```
