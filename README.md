@@ -25,17 +25,39 @@ Dependencies:
 perl synpan_build.pl 4grass.list
 ```
 ### Output
-
-SG-Pan example (5 samples: A, B, C, D, E):
+- 4grass.list.SG
 ```
-#SG-ID   Samples  marker  Genes  SyntA  SyntB  SyntC  SyntD  SyntE
-SG0001  5   5  -  A-gene1   B-gene1   C-gene2   D-gene1   E-gene1
-SG0002  5   6  *  A-gene2   B-gene2,B-gene3   C-gene3   D-gene2   E-gene2
-SG0003  4  4  -  A-gene3   B-gene4    D-gene4   E-gene3
-SG0004  2  2  -  A-gene4      D-gene5  
+SG0000036  Plat_Pl01g00360,Osat_LOC_Os01g74470,Sbic_Sobic.003G445500,Atau_AET3Gv21251600,Hvul_HORVU.MOREX.r3.3HG0330430
+SG0000037  Plat_Pl01g00370,Sbic_Sobic.003G445400,Atau_AET3Gv21249200,Hvul_HORVU.MOREX.r3.3HG0330240
+SG0000038  Plat_Pl01g00380
+SG0000039  Plat_Pl01g00390,Osat_LOC_Os01g74450,Sbic_Sobic.003G445300,Atau_AET3Gv21248800,Hvul_HORVU.MOREX.r3.3HG0330200
+SG0000040  Plat_Pl01g00400,Osat_LOC_Os01g74440,Atau_AET3Gv21248600,Hvul_HORVU.MOREX.r3.3HG0330190
+```
+- 4grass.list.SG.pan 
+ 
+A syntelog matrix (.pan) decompressed from abouve .SG
+```
+SG0000036	5	5	-	Plat_Pl01g00360	Osat_LOC_Os01g74470	Sbic_Sobic.003G445500	Atau_AET3Gv21251600	Hvul_HORVU.MOREX.r3.3HG0330430
+SG0000037	4	4	-	Plat_Pl01g00370		Sbic_Sobic.003G445400	Atau_AET3Gv21249200	Hvul_HORVU.MOREX.r3.3HG0330240
+SG0000038	1	1	-	Plat_Pl01g00380				
+SG0000039	5	5	-	Plat_Pl01g00390	Osat_LOC_Os01g74450	Sbic_Sobic.003G445300	Atau_AET3Gv21248800	Hvul_HORVU.MOREX.r3.3HG0330200
+SG0000040	4	4	-	Plat_Pl01g00400	Osat_LOC_Os01g74440		Atau_AET3Gv21248600	Hvul_HORVU.MOREX.r3.3HG0330190
 ```
 > Ideally, within one SG, one sample at most provides one syntelog (present or absent)(SG0001, SG0003 and SG0004). Sometimes two or more genes from one sample are observed in one SG, because pairwise alignments for two samples (A as query and B as ref *versus* A as ref and B as query) may identify different syntelog pairs due to tandem duplication (SG0002, marked by *).
 
+- 4grass.list.sg.stat
+```
+Brief Statistic
+***********************
+Shared_Genomes	SG_Number
+1  94751
+2  8413
+3  4147
+4  3902
+5  7945
+=====================
+All  119158
+```
 Extract subset (part of samples) of SG-pan
 ```
 perl 031_subPan_sample.pl SG-Pan Sub-list(sample)
