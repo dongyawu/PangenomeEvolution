@@ -10,8 +10,10 @@ Sbic
 Atau
 Hvul
 ```
-- Prot and Gene coordinates files in current working directory. 
-Protein sequences in fasta format (SAMPLE.prot in current working directory). 
+- Prot and Gene coordinates files in current working directory.
+
+Protein sequences in fasta format (SAMPLE.prot in current working directory).
+
 Gene coordinates in bed format (SAMPLE.bed in current working directory). 
 ```
 Atau.bed
