@@ -2,12 +2,12 @@
 
 ## Construction of syntelog-based pangenome
 ### Input files
-- PROT sequences in fasta format (SAMPLE.prot)
-- GENE positions in bed format (SAMPLE.bed)
+- Protein sequences in fasta format (SAMPLE.prot in current working directory)
+- Gene coordinates in bed format (SAMPLE.bed in current working directory)
 
-Note different formats of GFF files from different genome projects and data trimming is required to make sure consistency of PROT id and Gene id. e.g. Filtering multiple transcripts. 
+*When generating the coordinates of genes, note the formats of GFF files from different genome projects and data trimming (e.g. filtering multiple transcripts) is required to make sure consistency of protein sequence (.prot) id and gene id (.bed).*
 
-BED format of gene annotation
+BED format of gene coordinates
 ```
 Chr1    69675   70131   LOC_Os01g01140
 Chr1    72775   79938   LOC_Os01g01150
@@ -23,7 +23,7 @@ Dependencies:
 ```
 perl synpan_build.pl 4grass.list
 ```
-### Output
+### Output files
 - 4grass.list.SG
 ```
 SG0000036  Plat_Pl01g00360,Osat_LOC_Os01g74470,Sbic_Sobic.003G445500,Atau_AET3Gv21251600,Hvul_HORVU.MOREX.r3.3HG0330430
